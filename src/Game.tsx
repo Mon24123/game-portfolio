@@ -364,7 +364,7 @@ export default function Home() {
       <section className="notice-hero">
         <p className="notice-tag">内部紧急通知 / 仅限合伙人</p>
         <h1><span>通知：</span>公司还有<br />三十天倒闭</h1>
-        <p className="notice-copy">现金只够再活30天。没有人掌握全部真相，而每一份协议都必须有人签名负责。</p>
+        <p className="notice-copy">技术藏着系统风险，财务藏着税务欠款，CEO 藏着一份离任条件。公司只剩30天，你会保住公司，还是先保住自己？</p>
         <div className="mode-row" aria-label="游戏模式">
           <button className="mode-card active" aria-pressed="true"><span>现在可玩</span><b>单机剧情</b><small>你与4位电脑合伙人谈判</small></button>
           

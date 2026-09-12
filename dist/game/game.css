@@ -511,3 +511,28 @@ button:disabled { cursor: not-allowed; }
 }
 
 .portfolio-back{position:fixed;right:16px;bottom:12px;z-index:80;background:#f2ff35;color:#111;padding:10px 14px;font:700 14px sans-serif;text-decoration:none}.lobby-shell{overflow:auto}.mode-row{grid-template-columns:1fr;max-width:420px} .notice-hero h1{line-height:1.05} @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+
+/* A bright crisis notice in the lobby; the play board keeps its own palette. */
+.lobby-shell{height:auto;min-height:100dvh;overflow:visible;align-items:center;background:#f3f6ff;color:#172344;padding:40px clamp(18px,4vw,70px) 75px}
+.lobby-shell::before{display:none}
+body:has(.lobby-shell),html:has(.lobby-shell){height:auto;min-height:100%;overflow:auto;background:#f3f6ff}
+.lobby-shell .noise{display:none}
+.notice-hero{max-width:1280px;width:100%;display:grid;grid-template-columns:1fr 1.1fr;column-gap:clamp(30px,5vw,80px);align-items:start;padding:0}
+.notice-tag{grid-column:1;grid-row:1;justify-self:start;margin:0 0 24px;background:#ffdb68;color:#172344;box-shadow:4px 4px 0 #ff603c;font-size:14px}
+.notice-hero h1{grid-column:1;grid-row:2 / span 3;align-self:start;font-size:clamp(58px,6.3vw,94px);line-height:1.13;letter-spacing:-.055em;max-width:none;color:#2454ee}
+.notice-hero h1 span{color:#e74724;font-size:.34em;margin:0 0 16px;transform:none;letter-spacing:0}
+.notice-copy{grid-column:1;grid-row:5 / span 3;color:#475570;font-size:18px;font-weight:500;line-height:1.8;margin:24px 0}
+.mode-row,.name-field,.picker-title,.role-picker,.selected-role,.lobby-actions,.lobby-foot{grid-column:2;max-width:none;min-width:0}
+.mode-row{grid-row:1 / span 2;margin:0 0 16px}.mode-card.active{background:#2454ee;color:white;box-shadow:5px 5px 0 #a8beff;border-color:#2454ee;padding:14px}.mode-card span,.mode-card small{font-size:13px;letter-spacing:0}.mode-card b{font-size:22px}
+.name-field{grid-template-columns:1fr;gap:6px;margin:14px 0}.name-field>span,.picker-title{font-size:14px;letter-spacing:0;color:#172344}.name-field small{display:none}.name-field input{background:#fff;color:#172344;border:1px solid #9caccb;width:100%}
+.role-picker{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.role-pick{min-height:95px;padding:12px;background:white;color:#172344;border:1px solid #b6c1d7}.role-pick.active{background:#ffdb68;border-color:#172344;color:#172344;box-shadow:3px 3px 0 #ff603c;transform:none}.role-pick span,.role-pick small{font-size:12px;letter-spacing:0;line-height:1.6}.role-pick b{font-size:23px}.role-pick:last-child{grid-column:auto}.selected-role{display:block;margin-block:16px;padding-top:12px;border-top:1px dashed #8596b4}.selected-role span{display:block;color:#2454ee;font-size:14px;margin-bottom:5px}.selected-role b{font-size:15px;color:#172344;font-weight:500}
+.lobby-actions{flex-wrap:wrap;gap:12px}.start-button{background:#e74724;transform:none;box-shadow:4px 4px 0 #ffdb68;font-size:17px;line-height:1.5;padding:14px 18px}.start-button:disabled{background:#dde3ef;color:#59667d;box-shadow:none}.rules-button{border-color:#64799e;color:#172344;font-size:15px}.lobby-foot{font-size:13px;color:#59667d;letter-spacing:0}
+.identity-panel,.board,.decision-panel{overflow:auto;overscroll-behavior:contain}.result-sheet,.ending-sheet,.help-sheet,.metrics-sheet{overflow:auto!important;max-height:calc(100dvh - 40px)}
+@media(max-width:1180px){.game-grid>.identity-panel,.game-grid>.board,.game-grid>.decision-panel{overflow:auto!important}.notice-hero{grid-template-columns:1fr 1.05fr}.notice-hero h1{font-size:clamp(52px,6.5vw,75px)}.lobby-shell{padding:28px 24px 70px}.role-picker{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.notice-hero{display:block}.notice-hero h1{font-size:clamp(46px,9vw,68px);line-height:1.17}.notice-tag{font-size:13px;margin-bottom:22px}.notice-copy{font-size:16px;margin-block:20px}.mode-row{margin-top:26px}.lobby-shell{padding:28px 18px 80px}.role-picker{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.role-pick{min-height:90px}.role-pick:last-child{grid-column:1/-1}.name-field{display:grid}.selected-role{display:block}.lobby-actions{display:flex}.start-button{font-size:16px}.lobby-foot{line-height:1.8}.help-sheet,.result-sheet,.ending-sheet{padding:20px!important}}
+
+html,body{min-height:100%;height:auto;overflow:auto}
+.notice-hero{height:auto;overflow:visible;align-content:start;grid-template-rows:none}
+.name-field{grid-row:3}.picker-title{grid-row:4}.role-picker{grid-row:5}.selected-role{grid-row:6}.lobby-actions{grid-row:7;display:flex}.lobby-foot{grid-row:8}
+.mode-card small,.role-pick span,.role-pick small{display:block}.role-pick small,.selected-role b{max-height:none;overflow:visible}.mode-row{display:grid;grid-template-columns:1fr}
+@media(max-width:760px){.notice-hero{display:block}.lobby-shell{display:block}.lobby-actions{display:flex}.lobby-foot{margin-top:20px}}
