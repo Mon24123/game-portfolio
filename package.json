@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build:game": "esbuild src/main.tsx --bundle --minify --jsx=automatic --define:process.env.NODE_ENV='\"production\"' --outfile=dist/game/game.js"
+    "build:game": "esbuild src/main.tsx --bundle --minify --jsx=automatic --define:process.env.NODE_ENV='\"production\"' --outfile=dist/game/game.js",
+    "test": "node tests/game-flow.cjs"
   },
   "dependencies": {
     "react": "19.2.6",
     "react-dom": "19.2.6"
   },
   "devDependencies": {
-    "esbuild": "0.28.0"
+    "esbuild": "0.28.0",
+    "react-test-renderer": "19.2.6"
   }
 }

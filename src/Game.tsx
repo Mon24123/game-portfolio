@@ -380,6 +380,7 @@ export default function Home() {
         <div className="lobby-actions"><button className="start-button" disabled={!playerName.trim()} onClick={() => { resetGame(false); setStarted(true); setHelpOpen(true); }}>{playerName.trim() ? `${playerName.trim()}，签下合伙人协议 →` : "先写下你的名字"}</button><button className="rules-button" onClick={() => setHelpOpen(true)}>先看玩法说明</button></div>
         <p className="lobby-foot">单机剧情版 · 10轮 · 每轮3个方案 · 早期决定会触发后续因果事件</p>
       </section>
+      <a className="portfolio-back" href="../">返回作品集</a>
       {helpOpen && <HelpDialog onClose={() => setHelpOpen(false)} />}
     </main>;
   }
@@ -389,11 +390,11 @@ export default function Home() {
     <header className="topbar">
       <button className="brand-button" onClick={() => resetGame(true)} aria-label="返回角色选择"><span>现金流只剩</span><strong>{day}天</strong></button>
       <div className="round-track"><span>DAY {Math.min(30, 30 - day + 1)}</span><div><i style={{ width: `${((30 - day) / 30) * 100}%` }} /></div><b>第 {round}/10 轮</b></div>
-      <div className="top-actions"><button className="ghost-button help-button" onClick={() => setHelpOpen(true)}>怎么玩</button><button className="ghost-button reset-button" onClick={() => resetGame(false)}>重新开局</button></div>
+      <div className="top-actions"><a className="back-link" href="../">作品集</a><button className="ghost-button help-button" onClick={() => setHelpOpen(true)}>怎么玩</button><button className="ghost-button reset-button" onClick={() => resetGame(false)}>重新开局</button></div>
     </header>
 
     <section className="status-rail" aria-label="公司指标">
-      {metricMeta.map((item) => <Metric key={item.key} {...item} value={metrics[item.key]} />)}
+      {metricMeta.map(({ key, ...item }) => <Metric key={key} {...item} value={metrics[key]} />)}
       <button className="metrics-button" onClick={() => setMetricsOpen(true)}>全部<br />指标</button>
     </section>
 
@@ -476,7 +477,7 @@ export default function Home() {
       <div className="ending-actions"><button onClick={() => resetGame(false)}>同一角色再来一局</button><button onClick={() => resetGame(true)}>换角色</button></div>
     </div></div>}
     {helpOpen && <HelpDialog onClose={() => setHelpOpen(false)} />}
-    {metricsOpen && <div className="result-layer metrics-layer" role="dialog" aria-modal="true" aria-labelledby="metrics-title"><div className="metrics-sheet"><p>公司实时仪表盘</p><h2 id="metrics-title">全部指标</h2><div>{metricMeta.map((item) => <Metric key={item.key} {...item} value={metrics[item.key]} />)}</div><button className="continue-button" onClick={() => setMetricsOpen(false)}>看完了</button></div></div>}
+    {metricsOpen && <div className="result-layer metrics-layer" role="dialog" aria-modal="true" aria-labelledby="metrics-title"><div className="metrics-sheet"><p>公司实时仪表盘</p><h2 id="metrics-title">全部指标</h2><div>{metricMeta.map(({ key, ...item }) => <Metric key={key} {...item} value={metrics[key]} />)}</div><button className="continue-button" onClick={() => setMetricsOpen(false)}>看完了</button></div></div>}
   </main>;
 }
 
